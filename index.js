@@ -144,17 +144,18 @@ const promptEmployees = () => {
             message: 'What would you like to do?',
             choices: ['Add an engineer', 'Add an intern', 'Finish building my team']
         }
-    ).then(reply => {
-        if (reply === 'Add an engineer') {
+    ).then( reply => {
+        if (reply.employeeList === 'Add an engineer') {
             // call prompt for engineer
             promptEngineer();
 
-        } else if (reply === 'Add an intern') {
+        } else if (reply.employeeList === 'Add an intern') {
             // call prompt for intern
             promptIntern();
             
         } else {
             // user is done building their team and the employees array needs to be passed to the src folder to build the HTML
+            console.log(employees);
         }
     })
 }
