@@ -1,9 +1,6 @@
-// link to app.js where the app will initialize
-
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const Employee = require('./lib/Employee.js');
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
@@ -151,10 +148,10 @@ const promptEmployees = () => {
         if (reply === 'Add an engineer') {
             // call prompt for engineer
             promptEngineer();
-            
+
         } else if (reply === 'Add an intern') {
             // call prompt for intern
-            promptIntern()
+            promptIntern();
             
         } else {
             // user is done building their team and the employees array needs to be passed to the src folder to build the HTML
@@ -229,8 +226,8 @@ const startPrompt = () => {
 }
 
 // function to write HTML file
-function writeToFile(fileName, data) {
-    return fs.writeFileSync(fileName, data)
-};
+// function writeToFile(fileName, data) {
+//     return fs.writeFileSync(fileName, data)
+// };
 
 startPrompt();
