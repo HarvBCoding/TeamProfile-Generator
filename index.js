@@ -1,11 +1,29 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generatePage = require('./src/page-template.js');
 
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
 const employees = [];
+
+// function to write HTML file
+const writeFile = fileContent => {
+    return new Promise((resolve, reject) => {
+        fs.writeFile('./dist/index.html', fileContent, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+
+            resolve({
+                ok: true,
+                message: 'File created!'
+            });
+        });
+    });
+};
 
 // prompt for Engineer for name, id, email and github, once all questions are answered user should be taken back to the promptEmployees menu
 const promptEngineer = () => {
@@ -155,7 +173,9 @@ const promptEmployees = () => {
             
         } else {
             // user is done building their team and the employees array needs to be passed to the src folder to build the HTML
-            console.log(employees);
+            let pageHTML = generatePage(employees);
+            // after the html is generated write the file
+            writeFile(pageHTML);
         }
     })
 }
@@ -226,9 +246,5 @@ const startPrompt = () => {
     })
 }
 
-// function to write HTML file
-// function writeToFile(fileName, data) {
-//     return fs.writeFileSync(fileName, data)
-// };
 
-startPrompt();
+startPrompt()
