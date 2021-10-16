@@ -117,7 +117,9 @@ module.exports = teamData => {
     </head>
     <body>
         <header class="text-center p-4 bg-info text-warning">
-            <h2>My Team</h2>
+            <h2>
+              <i class="material-icons">business</i> My Team
+            </h2>
         </header>
 
         <div class="card-deck d-flex flex-wrap justify-content-center">
