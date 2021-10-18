@@ -30,7 +30,7 @@
   ## Tests
   Video for comparison: 
   
-  [GifOfApp](https://media.giphy.com/media/WRynGSOaKvFKn8fWbh/giphy.gif) 
+  ![GifOfApp](https://media.giphy.com/media/WRynGSOaKvFKn8fWbh/giphy.gif) 
 
   ## Questions
   If you have any questions or need to report bugs please reach out to me at [HarvBCoding](https://www.github.com/HarvBCoding) or harvey.breania@gmail.com
