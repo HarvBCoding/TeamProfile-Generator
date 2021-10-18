@@ -1,5 +1,4 @@
 module.exports = teamData => {
-    // console.log(teamData);
 
     // create a function that filters through teamData for Manager and creates the card for manager role
     const getManager = arr => {
@@ -11,6 +10,7 @@ module.exports = teamData => {
         });
 
         const { name, id, email, role, office } = manager[0];
+
         return `
         <div class="card flex-item col-3 m-3 text-white bg-secondary">
             <div class="card-header">
@@ -41,23 +41,24 @@ module.exports = teamData => {
         });
 
         const engineerCards = engineer.map(i => {
-            // console.log(i.name);
+            
+            const { name, role, id, email, github } = i;
             return `
             <div class="card flex-item col-3 m-3 text-white bg-info">
                 <div class="card-header">
-                    <h3>${i.name}</h3>
+                    <h3>${name}</h3>
                     <h4>
-                      <i class="material-icons">computer</i> ${i.role}
+                      <i class="material-icons">computer</i> ${role}
                     </h4>
                 </div>
                 <div class="card-body">
                     <ul class="list-group">
-                        <li class="list-group-item">ID: ${i.id}</li>
+                        <li class="list-group-item">ID: ${id}</li>
                         <li class="list-group-item">
-                            Email: <a href = "mailto: ${i.email}">${i.email}</a>
+                            Email: <a href = "mailto: ${email}">${email}</a>
                         </li>
                         <li class="list-group-item">
-                            GitHub: <a href= "https://github.com/${i.github}" target="_blank" rel="noopener noreferrer">${i.github}</a>
+                            GitHub: <a href= "https://github.com/${github}" target="_blank" rel="noopener noreferrer">${github}</a>
                         </li>
                     </ul>
                 </div>
@@ -78,7 +79,9 @@ module.exports = teamData => {
         });
 
         const internCards = intern.map(i => {
-            // console.log(i.name);
+            
+            const { name, id, email, school, role } = i;
+
             return `
             <div class="card flex-item col-3 m-3 text-white bg-warning">
                 <div class="card-header">
